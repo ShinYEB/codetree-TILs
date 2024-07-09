@@ -22,7 +22,7 @@ for i in range(1, n * m + 1):
     
     idx = i % 26
     if board[dy][dx] == 0:
-        board[dy][dx] = chr(i + ord("A"))
+        board[dy][dx] = chr(idx + ord("A"))
     x, y = dx, dy
 
 for b in board:
