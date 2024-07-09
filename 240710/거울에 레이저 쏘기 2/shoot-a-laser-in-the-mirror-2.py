@@ -18,18 +18,20 @@ elif int((K-1) / N) == 1:
     y = (K-1) % N
     direct = "L"
 elif int((K-1) / N) == 2:
-    x = (K-1) % N
+    x = N - 1 - (K-1) % N
     y = N-1
     direct = "U"
 elif int((K-1) / N) == 3:
     x = 0
-    y = (K-1) % N
+    y = N - 1 - (K-1) % N
     direct = "R"
 
 cnt = 0
 
 while (x != -1 and y != -1 and x != N and y != N):
+
     mirror = board[y][x]
+ 
     direct = reflect[(mirror, direct)]
     cnt += 1
     x += move[direct][1]
