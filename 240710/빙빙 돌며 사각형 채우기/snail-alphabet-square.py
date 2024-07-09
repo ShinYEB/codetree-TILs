@@ -8,7 +8,7 @@ board = [[0 for _ in range(m)] for _ in range(n)]
 
 board[0][0] = "A"
 x, y = 0, 0
-for i in range(1, n * m + 1):
+for i in range(1, n * m):
     dx = x + move[f][1]
     dy = y + move[f][0]
     if dx < 0 or dy <0 or dx >= m or dy >= n:
