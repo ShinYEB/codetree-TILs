@@ -63,7 +63,7 @@ int main() {
     for (int i=0; i<m; i++)
     {
         cin >> r >> c;
-        start.push_back(make_pair(r, c));
+        start.push_back(make_pair(r-1, c-1));
     }
 
 
