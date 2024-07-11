@@ -55,7 +55,7 @@ int main() {
         grid.clear();
         start.clear();
         temps.clear();
-        
+
         for (int i=0; i<N; i++)
         {
             vector<int> tempv(N);
@@ -66,7 +66,7 @@ int main() {
 
         for (int i=0; i<M; i++)
         {
-            cin >> x >> y >> d;
+            cin >> y >> x >> d;
             start.push_back(make_pair(make_pair(y-1, x-1), d));
         }        
 
@@ -77,7 +77,7 @@ int main() {
             {
                 pair<pair<int, int>, char> tempp = move(N, start[j].first.first, start[j].first.second, start[j].second);
                 grid[tempp.first.first][tempp.first.second]++;
-                dir_grid[tempp.first.first][tempp.first.second] = tempp.second;
+                dir_grid[tempp.first.first][tempp.first.second] = tempp.second;      
             }
             
             for (int yy=0; yy<N; yy++)
