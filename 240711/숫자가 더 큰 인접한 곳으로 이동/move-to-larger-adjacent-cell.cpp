@@ -31,6 +31,7 @@ int main() {
 
     r--; c--;
     ans = A[r][c];
+    int cnt = 0;
     while (is_continue)
     {
         cout << A[r][c] << " ";
@@ -47,7 +48,7 @@ int main() {
             is_continue = true;
             r = r+1;
         }
-        else if (ismove(n, r, c-1) && A[r-1][c-1] > ans)
+        else if (ismove(n, r, c-1) && A[r][c-1] > ans)
         {
             ans = A[r][c-1];
             is_continue = true;
@@ -58,7 +59,8 @@ int main() {
             ans = A[r][c+1];
             is_continue = true;
             c = c+1;
-        }    
+        }        
+            
     }
 
     return 0;
