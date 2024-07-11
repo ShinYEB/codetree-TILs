@@ -51,8 +51,8 @@ int main() {
     for (int z=0; z<T; z++)
     {
         cin >> N >> M;
-        
         grid.clear();
+        dir_grid.clear();
         start.clear();
         temps.clear();
 
