@@ -11,28 +11,33 @@ bool ismove(int n, int y, int x)
 pair<int, int> move(vector<vector<int>> A, int n, int y, int x)
 {
     int ans = 0;
-    
-    if (ismove(n, y-1, x) && A[y-1][x] > ans)
-    {
-        ans = A[y-1][x];
-        y = y-1;
-    }
-    else if (ismove(n, y+1, x) && A[y+1][x] > ans)
-    {
-        ans = A[y+1][x];
-        y = y+1;
-    }
-    else if (ismove(n, y, x-1) && A[y][x-1] > ans)
-    {
-        ans = A[y][x-1];
-        x = x-1;
-    }
-    else if (ismove(n, y, x+1) && A[y][x+1] > ans)
+    int r, c;
+    if (ismove(n, y, x+1) && A[y][x+1] >= ans)
     {
         ans = A[y][x+1];
-        x = x+1;
-    }       
-    return make_pair(y, x);
+        r = y;
+        c = x+1;
+    } 
+    if (ismove(n, y, x-1) && A[y][x-1] >= ans)
+    {
+        ans = A[y][x-1];
+        r = y;
+        c = x-1;
+    }
+    if (ismove(n, y+1, x) && A[y+1][x] >= ans)
+    {
+        ans = A[y+1][x];
+        r = y+1;
+        c = x;
+    }
+    if (ismove(n, y-1, x) && A[y-1][x] >= ans)
+    {
+        ans = A[y-1][x];
+        r = y-1;
+        c = x;
+    }
+       
+    return make_pair(r, c);
 }
 
 int main() {
@@ -66,7 +71,6 @@ int main() {
         start.push_back(make_pair(r-1, c-1));
     }
 
-
     for (int i=0; i<t; i++)
     {
         tempv.clear();
@@ -76,7 +80,6 @@ int main() {
             pair<int, int> tempp = move(A, n, start[j].first, start[j].second);
             r = tempp.first;
             c = tempp.second;
-            
             board[r][c] = board[r][c] + 1;
         }
 
@@ -84,7 +87,7 @@ int main() {
             for (int x=0; x<n; x++)
                 {
                     if (board[y][x] == 1)
-                        tempv.push_back(make_pair(y, x));
+                        tempv.push_back(make_pair(y, x)); 
                     board[y][x] = 0;
                 }
         start.clear();
