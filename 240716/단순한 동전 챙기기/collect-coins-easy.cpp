@@ -2,6 +2,7 @@
 using namespace std;
 
 int N, idx;
+int *isin = new int[11];
 int *listx = new int[11];
 int *listy = new int[11];
 int *list = new int[4];
@@ -56,13 +57,14 @@ int main() {
                     idx = temp[j] - '0';
                 listx[idx] = j;
                 listy[idx] = i;
+                isin[idx] = 1;
             }
     }
 
     for (int i=0; i<10; i++)
-        if(listx[i] != 0 || listy[i] != 0)
+        if(isin[i] == 1)
             for (int j=i+1; j<11; j++)
-                if(listx[j] != 0 || listy[j] != 0)
+                if(isin[j] == 1)
                     dist[i][j] = abs(listx[i] - listx[j]) + abs(listy[i] - listy[j]);
 
     recursion(0, 0);
@@ -70,6 +72,6 @@ int main() {
         cout << -1;
     else
         cout << result;
-
+        
     return 0;
 }
