@@ -16,7 +16,7 @@ int main() {
 
     for (int i=1; i<=M; i++)
     {
-        for(int j=1; j<(int)(i/2); j++)
+        for(int j=1; j<=(int)(i/2); j++)
         {
             if (coins[j] != 0 && coins[i-j] != 0)
             {
