@@ -4,6 +4,7 @@ using namespace std;
 int main() {
     // 여기에 코드를 작성해주세요.
     int N, temp;
+    int idx = 0;
     cin >> N;
 
     int *dp = new int[N];
@@ -21,7 +22,7 @@ int main() {
             }
             else if(dp[j] >= temp)
             {
-                dp[j-1] = temp;
+                dp[j] = temp;
                 break;
             }
         }
