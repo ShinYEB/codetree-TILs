@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     // 여기에 코드를 작성해주세요.
     int N, temp;
-    int result = 0;
+    int result = -10000;
     cin >> N;
 
     int *list = new int[N];
