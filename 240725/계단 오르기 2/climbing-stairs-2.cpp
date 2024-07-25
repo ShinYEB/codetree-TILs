@@ -18,7 +18,7 @@ int main() {
         dp[i] = new int[n+1];
 
     
-    for(int i=2; i<=n; i+=2)
+    for(int i=2; i<=n; i=i+2)
         dp[0][i] = dp[0][i-2] + coin[i-1];
     
     dp[1][1] = coin[0];
@@ -28,8 +28,11 @@ int main() {
     for(int i=2; i<=n; i++)
         dp[2][i] = max(dp[1][i-1], dp[2][i-2]) + coin[i-1];
 
+    for(int i=3; i<=n; i++)
+        dp[3][i] = max(dp[2][i-1], dp[3][i-2]) + coin[i-1];
+
     int answer = 0;
-    for(int i=0; i<3; i++)
+    for(int i=0; i<4; i++)
         if(answer < dp[i][n])
             answer  = dp[i][n];
     
